@@ -4082,6 +4082,10 @@ function shouldPublishUpdate(registry, dragging, entry) {
     return false;
   }
 
+  if (!registry.droppable.exists(entry.descriptor.droppableId)) {
+    return false;
+  }
+
   var home = registry.droppable.getById(entry.descriptor.droppableId);
 
   if (home.descriptor.mode !== 'virtual') {
