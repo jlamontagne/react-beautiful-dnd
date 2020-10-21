@@ -126,7 +126,10 @@ export default (registry: Registry, callbacks: Callbacks) => {
     if (!collection) {
       return;
     }
-    registry.droppable.getById(id).callbacks.scroll(change);
+
+    if (registry.droppable.exists(id)) {
+      registry.droppable.getById(id).callbacks.scroll(change);
+    }
   };
 
   const stopPublishing = () => {
