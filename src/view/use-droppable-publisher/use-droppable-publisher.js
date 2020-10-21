@@ -246,13 +246,6 @@ export default function useDroppablePublisher(args: Props) {
     registry.droppable.register(entry);
 
     return () => {
-      if (whileDraggingRef.current) {
-        warning(
-          'Unsupported: changing the droppableId or type of a Droppable during a drag',
-        );
-        dragStopped();
-      }
-
       registry.droppable.unregister(entry);
     };
   }, [callbacks, descriptor, dragStopped, entry, marshal, registry.droppable]);
