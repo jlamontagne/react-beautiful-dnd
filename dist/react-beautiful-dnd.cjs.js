@@ -7410,11 +7410,6 @@ function useDroppablePublisher(args) {
     publishedDescriptorRef.current = entry.descriptor;
     registry.droppable.register(entry);
     return function () {
-      if (whileDraggingRef.current) {
-        process.env.NODE_ENV !== "production" ? warning('Unsupported: changing the droppableId or type of a Droppable during a drag') : void 0;
-        dragStopped();
-      }
-
       registry.droppable.unregister(entry);
     };
   }, [callbacks, descriptor, dragStopped, entry, marshal, registry.droppable]);
