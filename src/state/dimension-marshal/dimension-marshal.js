@@ -46,6 +46,10 @@ function shouldPublishUpdate(
     return false;
   }
 
+  if (!registry.droppable.exists(entry.descriptor.droppableId)) {
+    return false;
+  }
+
   const home: DroppableEntry = registry.droppable.getById(
     entry.descriptor.droppableId,
   );
